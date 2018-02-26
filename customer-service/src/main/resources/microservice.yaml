@@ -6,17 +6,17 @@ service_description:
 cse:
   service:
     registry:
-      address: https://cse.cn-north-1.myhwclouds.com:443
+      address: http://127.0.0.1:30100 #https://cse.cn-north-1.myhwclouds.com:443
       instance:
         watch: false
-  config:
-    client:
-      serverUri: https://cse.cn-north-1.myhwclouds.com:443
-      refreshMode: 1
-      refresh_interval: 5000
-  monitor:
-    client:
-      serverUri: https://cse.cn-north-1.myhwclouds.com:443
+#  config:
+#    client:
+#      serverUri: https://cse.cn-north-1.myhwclouds.com:443
+#      refreshMode: 1
+#      refresh_interval: 5000
+#  monitor:
+#    client:
+#      serverUri: https://cse.cn-north-1.myhwclouds.com:443
   rest:
     address: 0.0.0.0:9093
     server:
@@ -25,6 +25,6 @@ cse:
   handler:
     chain:
       Provider:
-        default: perf-stats,qps-flowcontrol-provider,bizkeeper-provider,tcc-provider,twoPC-provider
+        default: bizkeeper-provider,tcc-provider,twoPC-provider
       Consumer:
-        default: perf-stats,qps-flowcontrol-consumer,loadbalance,bizkeeper-consumer,tcc-consumer,twoPC-consumer
+        default: loadbalance,bizkeeper-consumer,tcc-consumer,twoPC-consumer
